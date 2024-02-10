@@ -9,10 +9,7 @@ if __name__ == '__main__':
         presented_empty_gate = (selected_gate + 1) % 3
         if winner_gate == presented_empty_gate:
             presented_empty_gate = (presented_empty_gate + 1) % 3
-        gates = [0, 1, 2]
-        gates.remove(selected_gate)
-        gates.remove(presented_empty_gate)
-        third_gate = gates[0]
+        third_gate = ({0, 1, 2} - {selected_gate, presented_empty_gate}).pop()
         strategy = ['Remain Gate', 'Fifty-Fifty', 'Change Gate']
         choice = [selected_gate, random.choice([selected_gate, third_gate]), third_gate]
         print(" Random winner gate: {}".format(winner_gate))
